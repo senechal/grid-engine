@@ -170,7 +170,9 @@ export class Jps4 extends ShortestPathAlgorithm {
     stopNode: LayerVecPos,
   ): { p: LayerVecPos; dist: number }[] {
     if (!parent || node.layer !== parent.layer) {
-      return this.getNeighbors(node, stopNode).map((n) => ({ p: n, dist: 1 }));
+      const n = this.getNeighbors(node, stopNode).map((n) => ({ p: n, dist: 1 }));
+      console.log({ neightbors: n})
+      return n
     }
 
     const pruned = this.prune(parent, node).map((unblockedNeighbor) => {
