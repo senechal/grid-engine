@@ -55,6 +55,7 @@ export class Jps4 extends ShortestPathAlgorithm {
     [Direction.UP_RIGHT]: 7,
   };
 
+
   private turnTimes: Map<Direction, Map<number, Direction>> = createTurnTimes();
 
   protected distanceUtils: DistanceUtils;

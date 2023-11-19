@@ -17,7 +17,7 @@ export class DistanceUtils8 implements DistanceUtils {
       new Vector2(pos.x - 1, pos.y - 1),
     ];
 
-    return [ ...diagonalNeighbors];
+    return [...diagonalNeighbors];
   }
 
   direction(from: Vector2, to: Vector2): Direction {
