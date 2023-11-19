@@ -187,11 +187,12 @@ export abstract class ShortestPathAlgorithm {
   }
 
   distance(fromNode: Vector2, toNode: Vector2): number {
-    const distance =
-      this.options.numberOfDirections === NumberOfDirections.FOUR
-        ? VectorUtils.manhattanDistance
-        : VectorUtils.chebyshevDistance;
-    return distance(fromNode, toNode);
+    // const distance =
+    //   this.options.numberOfDirections === NumberOfDirections.FOUR
+    //     ? VectorUtils.manhattanDistance
+    //     : VectorUtils.chebyshevDistance;
+    // return distance(fromNode, toNode);
+    return VectorUtils.manhattanDistance(fromNode, toNode)
   }
 
   getTilePosInDir(pos: LayerVecPos, dir: Direction): LayerVecPos {
