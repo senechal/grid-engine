@@ -9,35 +9,35 @@ export class DistanceUtils4 implements DistanceUtils {
   }
 
   direction(from: Vector2, to: Vector2): Direction {
-    if (VectorUtils.equal(from, to)) return Direction.NONE;
-
-    const diff = from.clone().subtract(to);
-
-    if (Math.abs(diff.x) > Math.abs(diff.y)) {
-      if (diff.x > 0) {
-        return Direction.LEFT;
-      } else {
-        return Direction.RIGHT;
+    if (to.x > from.x) {
+      if (to.y > from.y) {
+        return Direction.DOWN_RIGHT;
+      } else if (to.y < from.y) {
+        return Direction.UP_RIGHT;
       }
-    } else {
-      if (diff.y > 0) {
-        return Direction.UP;
-      } else {
-        return Direction.DOWN;
+    } else if (to.x < from.x) {
+      if (to.y > from.y) {
+        return Direction.DOWN_LEFT;
+      } else if (to.y < from.y) {
+        return Direction.UP_LEFT;
       }
     }
+    return Direction.NONE;
   }
 
   neighbors(pos: Vector2): Vector2[] {
     return [
-      new Vector2(pos.x, pos.y + 1),
-      new Vector2(pos.x + 1, pos.y),
-      new Vector2(pos.x - 1, pos.y),
-      new Vector2(pos.x, pos.y - 1),
+      new Vector2(pos.x + 1, pos.y + 1),
+      new Vector2(pos.x + 1, pos.y - 1),
+      new Vector2(pos.x - 1, pos.y + 1),
+      new Vector2(pos.x - 1, pos.y - 1),
     ];
   }
 
   getDirections(): Direction[] {
-    return [Direction.UP, Direction.RIGHT, Direction.DOWN, Direction.LEFT];
+    return [Direction.DOWN_LEFT,
+      Direction.DOWN_RIGHT,
+      Direction.UP_RIGHT,
+      Direction.UP_LEFT,];
   }
 }

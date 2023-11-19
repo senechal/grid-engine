@@ -55,7 +55,6 @@ export class Jps4 extends ShortestPathAlgorithm {
     [Direction.UP_RIGHT]: 7,
   };
 
-
   private turnTimes: Map<Direction, Map<number, Direction>> = createTurnTimes();
 
   protected distanceUtils: DistanceUtils;
@@ -170,9 +169,7 @@ export class Jps4 extends ShortestPathAlgorithm {
     stopNode: LayerVecPos,
   ): { p: LayerVecPos; dist: number }[] {
     if (!parent || node.layer !== parent.layer) {
-      const n = this.getNeighbors(node, stopNode).map((n) => ({ p: n, dist: 1 }));
-      console.log({ neightbors: n})
-      return n
+      return this.getNeighbors(node, stopNode).map((n) => ({ p: n, dist: 1 }));
     }
 
     const pruned = this.prune(parent, node).map((unblockedNeighbor) => {
