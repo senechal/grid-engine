@@ -31,31 +31,19 @@ export class DistanceUtils8 implements DistanceUtils {
         return Direction.DOWN_RIGHT;
       } else if (to.y < from.y) {
         return Direction.UP_RIGHT;
-      } else {
-        return Direction.RIGHT;
       }
     } else if (to.x < from.x) {
       if (to.y > from.y) {
         return Direction.DOWN_LEFT;
       } else if (to.y < from.y) {
         return Direction.UP_LEFT;
-      } else {
-        return Direction.LEFT;
       }
-    } else if (to.y < from.y) {
-      return Direction.UP;
-    } else if (to.y > from.y) {
-      return Direction.DOWN;
     }
     return Direction.NONE;
   }
 
   getDirections(): Direction[] {
     return [
-      // Direction.UP,
-      // Direction.RIGHT,
-      // Direction.DOWN,
-      // Direction.LEFT,
       Direction.DOWN_LEFT,
       Direction.DOWN_RIGHT,
       Direction.UP_RIGHT,
